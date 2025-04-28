@@ -4,6 +4,15 @@ document.getElementById('start-chat').addEventListener('click', function() {
   document.getElementById('start-chat').style.display = 'none';
 });
 
+// Adiciona evento para fechar o chat e mostrar o botão novamente
+const closeBtn = document.getElementById('close-chat');
+if (closeBtn) {
+  closeBtn.addEventListener('click', function() {
+    document.getElementById('chat').style.display = 'none';
+    document.getElementById('start-chat').style.display = 'inline-block';
+  });
+}
+
 // Envio da mensagem pelo usuário
 document.getElementById('send-message').addEventListener('click', async function() {
   let userInput = document.getElementById('user-input').value.trim();
