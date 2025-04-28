@@ -3,7 +3,11 @@
 body {
   margin: 0;
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-  background: #000;
+  background: #232323;
+  background-image: url('imagens/cimento_quimado.avif');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   color: #fff;
   min-height: 100vh;
   height: auto; /* permite altura dinâmica */
