@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #000;
+  padding: 36px 0 30px 0;
+  text-align: center;
+  box-shadow: 0 2px 16px 0 #ffcc0022;
+}
+
+header img,
+.furia-logo {
+  width: 180px;
+  height: auto;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 10px 0 10px;
+  overflow: hidden;
+  justify-content: center;
+}
+
+h1, h2, h3 {
+  font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffcc00;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 18px;
+  color: #ffcc00;
+  text-shadow: 0 2px 12px #000a;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  color: #fff;
+  text-shadow: 0 2px 8px #000a;
+}
+
+h3 {
+  font-size: 1.3rem;
+  color: #ffcc00;
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+  max-width: 600px;
+  color: #fff;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+.btn {
+  background-color: #ffcc00;
+  color: #000;
+  padding: 16px 38px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 2px 12px #ffcc0033;
+}
+
+.btn:hover {
+  background: #fff200;
+  color: #111;
+  box-shadow: 0 4px 24px #ffcc0066;
+  filter: brightness(1.1);
+}
+
+.chat-container {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #111;
+  border-radius: 14px;
+  width: 320px;
+  padding: 18px;
+  box-shadow: 0 2px 16px #000a;
+  border: 2px solid #ffcc00;
+}
+
+.chat-box {
+  max-height: 400px;
+  overflow-y: scroll;
+  margin-bottom: 10px;
+}
+
+.message {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+.bot-message {
+  background-color: #ffcc00;
+  color: #000;
+  font-weight: 700;
+}
+
+.user-message {
+  background-color: #222;
+}
+
+#user-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background-color: #222;
+  color: #fff;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+#send-message {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ffcc00;
+  color: #000;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: background 0.3s, color 0.3s;
+}
+
+#send-message:hover {
+  background-color: #fff200;
+  color: #111;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 22px;
+  max-width: 800px;
+  width: 100%;
+}
+
+.feature {
+  background: #000;
+  padding: 22px 16px;
+  border-radius: 14px;
+  font-size: 1.05rem;
+  border: 2px solid #222;
+  box-shadow: 0 2px 12px #ffcc0011;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.feature:hover {
+  border: 2px solid #ffcc00;
+  box-shadow: 0 4px 24px #ffcc0033;
+}
+
+footer {
+  text-align: center;
+  padding: 12px;
+  background-color: #000;
+  font-size: 1rem;
+  color: #ffcc00;
+  letter-spacing: 1px;
+  font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+  border-top: 2px solid #222;
+}
+
+.wallpaper,
+.furia-wallpaper-header {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .features {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    max-width: 98vw;
+  }
+  main {
+    padding: 8px 2px 0 2px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  .furia-logo, header img {
+    width: 100px;
+  }
+}
