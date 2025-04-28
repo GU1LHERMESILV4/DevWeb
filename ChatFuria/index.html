@@ -23,11 +23,14 @@
     <a href="#chat" class="btn" id="start-chat">Entrar no Chat</a>
 
     <section id="chat" class="chat-container">
+      <button class="chat-close-btn" id="close-chat" title="Fechar chat">×</button>
       <div class="chat-box" id="chat-box">
         <div class="message bot-message">Olá, fã da FURIA! Como posso te ajudar hoje? 😎</div>
       </div>
-      <input type="text" id="user-input" placeholder="Escreva sua mensagem..." autocomplete="off">
-      <button id="send-message">Enviar</button>
+      <div class="chat-input-row">
+        <input type="text" id="user-input" placeholder="Escreva sua mensagem..." autocomplete="off">
+        <button id="send-message">Enviar</button>
+      </div>
     </section>
 
     <section>
@@ -58,5 +61,33 @@
   </footer>
 
   <script src="chat.js"></script>
+  <script>
+    // Envia mensagem ao pressionar Enter no campo do chat
+    document.addEventListener('DOMContentLoaded', function() {
+      const input = document.getElementById('user-input');
+      const sendBtn = document.getElementById('send-message');
+      const chatSection = document.getElementById('chat');
+      const closeBtn = document.getElementById('close-chat');
+      const openBtn = document.getElementById('start-chat');
+      if (input && sendBtn) {
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            sendBtn.click();
+          }
+        });
+      }
+      if (closeBtn && chatSection) {
+        closeBtn.addEventListener('click', function() {
+          chatSection.style.display = 'none';
+        });
+      }
+      if (openBtn && chatSection) {
+        openBtn.addEventListener('click', function(e) {
+          chatSection.style.display = 'block';
+        });
+      }
+    });
+  </script>
 </body>
 </html>
