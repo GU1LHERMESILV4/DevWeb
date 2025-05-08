@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FURIA Fans Chat</title>
+  <link rel="icon" type="image/png" href="imagens/furia_logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive/responsive.css">
+</head>
+<body>
+  <header>
+    <img src="imagens/furia2_logo.png" alt="FURIA Logo" class="furia-logo">
+  </header>
+  <div class="profile-image-container">
+    <img src="imagens/guilherme_furia.png" alt="Guilherme FURIA" class="profile-image">
+  </div>
+
+  <main>
+    <h1>Bem-vindo ao FURIA Fans Chat 🔥</h1>
+    <p>Participe da torcida mais feroz! Acompanhe partidas ao vivo, mande mensagens de apoio, participe de quizzes e fique por dentro de tudo sobre a FURIA.</p>
+    <a href="#chat" class="btn" id="start-chat">Entrar no Chat</a>
+
+    <section id="chat" class="chat-container">
+      <button class="chat-close-btn" id="close-chat" title="Fechar chat">×</button>
+      <div class="chat-box" id="chat-box">
+        <div class="message bot-message">Olá, fã da FURIA! Como posso te ajudar hoje? 😎</div>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" id="user-input" placeholder="Escreva sua mensagem..." autocomplete="off">
+        <button id="send-message">Enviar</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>O que você pode fazer?</h2>
+      <div class="features">
+        <div class="feature" id="status-ao-vivo">
+          <h3>🎮 Status ao Vivo</h3>
+          <p>Receba atualizações dos jogos em tempo real e nunca perca uma partida!</p>
+        </div>
+        <div class="feature">
+          <h3>📣 Comandos de Torcida</h3>
+          <p>Grite, apoie e interaja como se estivesse na arquibancada virtual.</p>
+        </div>
+        <div class="feature" id="quizzes-btn">
+          <h3>🧠 Quizzes Interativos</h3>
+          <p>Teste seus conhecimentos sobre a história e conquistas da FURIA.</p>
+        </div>
+        <div class="feature">
+          <h3>🏆 Top Fãs</h3>
+          <p>Ganhe pontos e seja reconhecido como o maior fã da FURIA!</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 FURIA Fans Chat. Todos os direitos reservados.
+  </footer>
+
+  <script src="chat.js"></script>
+  <script src="scripts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var quizzesBtn = document.getElementById('quizzes-btn');
+      if (quizzesBtn) {
+        quizzesBtn.style.cursor = 'pointer';
+        quizzesBtn.addEventListener('click', function() {
+          // Caminho correto para quiz.html
+          window.location.href = '../quiz/quiz.html';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+body {
+  font-family: 'Roboto', 'Montserrat', Arial, Helvetica, sans-serif;
+  background: #232323;
+  background-image: url('../ChatFuria/imagens/cimento_quimado.png');
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.quiz-container {
+  background: rgba(20,20,20,0.97);
+  border-radius: 16px;
+  border: 2px solid #ffcc00;
+  box-shadow: 0 4px 24px #000a;
+  max-width: 480px;
+  width: 95vw;
+  margin: 40px auto 24px auto;
+  padding: 32px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+  color: #ffcc00;
+  font-size: 2.2rem;
+  margin-bottom: 18px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.question {
+  font-size: 1.15rem;
+  margin-bottom: 18px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 18px;
+}
+.answer-btn {
+  background: #222;
+  color: #ffcc00;
+  border: 2px solid #ffcc00;
+  border-radius: 8px;
+  padding: 12px 8px;
+  font-size: 1.08rem;
+  font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  width: 100%;
+  text-align: left;
+}
+.answer-btn:hover, .answer-btn.selected {
+  background: #ffcc00;
+  color: #181818;
+  border: 2px solid #fff200;
+}
+.quiz-footer {
+  margin-top: 18px;
+  text-align: center;
+  color: #ffcc00;
+  font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+}
+.result {
+  font-size: 1.3rem;
+  color: #fff200;
+  font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+.btn-restart, .btn-start {
+  margin-top: 16px;
+  background: #ffcc00;
+  color: #181818;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn-restart:hover, .btn-start:hover {
+  background: #fff200;
+  color: #000;
+}
+.score-final {
+  font-size: 1.5rem;
+  color: #ffcc00;
+  margin-top: 18px;
+  font-family: 'Bebas Neue', Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+@media (max-width: 600px) {
+  .quiz-container {
+    padding: 14px 4vw 14px 4vw;
+    max-width: 99vw;
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
+  .question {
+    font-size: 1rem;
+  }
+  .answer-btn {
+    font-size: 0.98rem;
+    padding: 10px 6px;
+  }
+  .score-final {
+    font-size: 1.1rem;
+  }
+}
