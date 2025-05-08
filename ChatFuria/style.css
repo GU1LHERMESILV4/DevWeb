@@ -13,9 +13,9 @@ body {
   height: auto; /* permite altura dinâmica */
   overflow-y: auto; /* permite rolagem vertical */
   overflow-x: hidden;
-  display: block;
+  display: flex; /* alterado de block para flex */
+  flex-direction: column; /* garante empilhamento vertical */
   text-align: center;
-  zoom: 67%;
 }
 
 /* Barra de rolagem estilizada para toda a página */
@@ -314,7 +314,6 @@ chat-box::-webkit-scrollbar-thumb {
   outline: none;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: flex-start;
   min-height: 108px;
   position: relative;
