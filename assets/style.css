@@ -1,3 +1,11 @@
+/* Fonts */
+@font-face {
+    font-family: 'Shrek';
+    src: url('fonts/shrek.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --swamp-green: #1a472a;
     --swamp-light: #4a7c59;
@@ -13,6 +21,8 @@
     --card-bg: rgba(26, 71, 42, 0.85);
     --header-bg: rgba(13, 43, 26, 0.9);
     --form-bg: rgba(125, 159, 122, 0.85);
+    --font-title: 'Shrek', cursive;
+    --font-body: 'Quicksand', sans-serif;
 }
 
 * {
@@ -22,7 +32,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: var(--font-body);
     color: var(--text-light);
     line-height: 1.6;
     position: relative;
@@ -107,16 +117,21 @@ header {
 }
 
 h1 {
-    font-size: 2.5em;
+    font-family: var(--font-title);
+    font-size: 3.5em;
     color: var(--text-light);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 10px;
+    letter-spacing: 2px;
 }
 
 h2 {
+    font-family: var(--font-title);
     color: var(--swamp-highlight);
     margin-bottom: 20px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    font-size: 2.5em;
+    letter-spacing: 1px;
 }
 
 .add-character {
@@ -154,6 +169,8 @@ textarea {
 }
 
 .btn {
+    font-family: var(--font-body);
+    font-weight: 600;
     background-color: var(--swamp-green);
     color: var(--text-light);
     padding: 12px 24px;
@@ -162,7 +179,6 @@ textarea {
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    font-weight: bold;
     letter-spacing: 1px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -210,10 +226,12 @@ textarea {
 }
 
 .character-card h3 {
+    font-family: var(--font-title);
     color: var(--swamp-highlight);
     margin-bottom: 10px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-    font-size: 1.4em;
+    font-size: 1.8em;
+    letter-spacing: 1px;
 }
 
 .character-card p {
