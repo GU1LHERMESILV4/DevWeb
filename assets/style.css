@@ -7,20 +7,29 @@
 }
 
 :root {
-    --swamp-green: #1a472a;
-    --swamp-light: #4a7c59;
-    --swamp-dark: #0d2b1a;
-    --ogre-skin: #8b9d77;
-    --text-light: #ffffff;
-    --mud-color: #3d2b1f;
-    --swamp-accent: #7d9f7a;
-    --swamp-highlight: #a8c4a5;
-    --swamp-shadow: #0a1f13;
-    --mud-light: #5d4a3f;
-    --mud-dark: #2d1f17;
-    --card-bg: rgba(26, 71, 42, 0.85);
-    --header-bg: rgba(13, 43, 26, 0.9);
-    --form-bg: rgba(125, 159, 122, 0.85);
+    /* Cores principais do pântano */
+    --swamp-green: #2d4a2d;      /* Verde mais profundo do pântano */
+    --swamp-light: #5a8a5a;      /* Verde mais claro das plantas */
+    --swamp-dark: #1a2f1a;       /* Verde escuro das sombras */
+    --ogre-skin: #a8c4a5;        /* Tom de verde da pele do Shrek */
+    
+    /* Cores do pântano e lama */
+    --mud-color: #4a3b2b;        /* Cor da lama */
+    --mud-light: #6d5a4a;        /* Lama mais clara */
+    --mud-dark: #2d2317;         /* Lama mais escura */
+    
+    /* Cores de destaque */
+    --swamp-accent: #8b9d77;     /* Cor de destaque suave */
+    --swamp-highlight: #c4d4a5;  /* Cor de destaque brilhante */
+    --swamp-shadow: #0a1f13;     /* Sombra profunda */
+    
+    /* Cores de texto e fundo */
+    --text-light: #f0f0f0;       /* Texto mais suave */
+    --card-bg: rgba(45, 74, 45, 0.85);    /* Fundo dos cards */
+    --header-bg: rgba(26, 47, 26, 0.9);   /* Fundo do cabeçalho */
+    --form-bg: rgba(138, 157, 119, 0.85); /* Fundo dos formulários */
+    
+    /* Fontes */
     --font-title: 'Shrek', cursive;
     --font-body: 'Quicksand', sans-serif;
 }
