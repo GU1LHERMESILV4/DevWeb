@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shrek - O Melhor do Pântano</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <!-- Mud drips -->
+    <div class="mud-drip"></div>
+    <div class="mud-drip"></div>
+    <div class="mud-drip"></div>
+    <div class="mud-drip"></div>
+    <div class="mud-drip"></div>
+    <div class="mud-drip"></div>
+
+    <div class="container">
+        <header>
+            <img src="https://i.imgur.com/JQZQZQZ.png" alt="Shrek Logo" class="logo">
+            <h1>Welcome to Shrek's Swamp</h1>
+            <p>Manage your favorite Shrek characters!</p>
+        </header>
+
+        <section class="add-character">
+            <h2>Add New Character</h2>
+            <form id="addCharacterForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Character Name" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="description" placeholder="Character Description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="url" name="image_url" placeholder="Image URL" required>
+                </div>
+                <button type="submit" class="btn">Add Character</button>
+            </form>
+        </section>
+
+        <section class="characters-list">
+            <h2>Characters Database</h2>
+            <div id="charactersGrid" class="characters-grid">
+                <!-- Characters will be added here dynamically -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Character</h2>
+            <form id="editCharacterForm">
+                <input type="hidden" name="id" id="edit-id">
+                <div class="form-group">
+                    <input type="text" name="name" id="edit-name" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="description" id="edit-description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="url" name="image_url" id="edit-image_url" required>
+                </div>
+                <button type="submit" class="btn">Update Character</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // API endpoints
+        const API_URL = {
+            list: 'api/crud.php?action=list',
+            create: 'api/crud.php?action=create',
+            update: 'api/crud.php?action=update',
+            delete: 'api/crud.php?action=delete'
+        };
+
+        // Function to fetch all characters
+        async function fetchCharacters() {
+            try {
+                const response = await fetch(API_URL.list);
+                const characters = await response.json();
+                displayCharacters(characters);
+            } catch (error) {
+                console.error('Error fetching characters:', error);
+            }
+        }
+
+        // Function to display characters
+        function displayCharacters(characters) {
+            const grid = document.getElementById('charactersGrid');
+            grid.innerHTML = '';
+
+            characters.forEach(character => {
+                const card = document.createElement('div');
+                card.className = 'character-card';
+                card.innerHTML = `
+                    <div class="character-image-container">
+                        <img src="${character.image_url}" alt="${character.name}" onerror="this.src='https://i.imgur.com/JQZQZQZ.png'">
+                    </div>
+                    <h3>${character.name}</h3>
+                    <p>${character.description}</p>
+                    <div class="character-actions">
+                        <button class="btn btn-danger" onclick="deleteCharacter(${character.id})">Delete</button>
+                        <button class="btn btn-edit" onclick="editCharacter(${character.id})">Edit</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Add new character
+        document.getElementById('addCharacterForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const newCharacter = {
+                name: formData.get('name'),
+                description: formData.get('description'),
+                image_url: formData.get('image_url')
+            };
+
+            try {
+                const response = await fetch(API_URL.create, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(newCharacter)
+                });
+                
+                if (response.ok) {
+                    this.reset();
+                    fetchCharacters();
+                }
+            } catch (error) {
+                console.error('Error adding character:', error);
+            }
+        });
+
+        // Edit character
+        async function editCharacter(id) {
+            try {
+                const response = await fetch(API_URL.list);
+                const characters = await response.json();
+                const character = characters.find(c => c.id == id);
+                
+                if (character) {
+                    document.getElementById('edit-id').value = character.id;
+                    document.getElementById('edit-name').value = character.name;
+                    document.getElementById('edit-description').value = character.description;
+                    document.getElementById('edit-image_url').value = character.image_url;
+                    document.getElementById('editModal').style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Error fetching character:', error);
+            }
+        }
+
+        // Update character
+        document.getElementById('editCharacterForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const character = {
+                id: formData.get('id'),
+                name: formData.get('name'),
+                description: formData.get('description'),
+                image_url: formData.get('image_url')
+            };
+
+            try {
+                const response = await fetch(API_URL.update, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(character)
+                });
+                
+                if (response.ok) {
+                    document.getElementById('editModal').style.display = 'none';
+                    fetchCharacters();
+                }
+            } catch (error) {
+                console.error('Error updating character:', error);
+            }
+        });
+
+        // Delete character
+        async function deleteCharacter(id) {
+            if (confirm('Are you sure you want to delete this character?')) {
+                try {
+                    const response = await fetch(API_URL.delete + '&id=' + id, {
+                        method: 'DELETE'
+                    });
+                    
+                    if (response.ok) {
+                        fetchCharacters();
+                    }
+                } catch (error) {
+                    console.error('Error deleting character:', error);
+                }
+            }
+        }
+
+        // Modal close functionality
+        document.querySelector('.close').onclick = function() {
+            document.getElementById('editModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('editModal')) {
+                document.getElementById('editModal').style.display = 'none';
+            }
+        }
+
+        // Initial load
+        fetchCharacters();
+    </script>
+</body>
+</html> 
