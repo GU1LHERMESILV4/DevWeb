@@ -1,7 +1,0 @@
-INSERT INTO characters (name, description, image_url) VALUES
-('Shrek', 'Um ogre verde, solitário e mal-humorado que vive em um pântano. Apesar de sua aparência assustadora, tem um coração de ouro.', 'https://www.dreamworks.com/storage/movies/shrek/gallery/shrek-gallery-1.jpg'),
-('Fiona', 'Uma princesa que foi amaldiçoada para se transformar em ogre à noite. É corajosa, independente e a esposa do Shrek.', 'https://www.dreamworks.com/storage/movies/shrek/gallery/shrek-gallery-2.jpg'),
-('Burro', 'Um burro falante, leal e tagarela que é o melhor amigo do Shrek. Sempre tem um comentário engraçado para fazer.', 'https://www.dreamworks.com/storage/movies/shrek/gallery/shrek-gallery-3.jpg'),
-('Gato de Botas', 'Um gato charmoso e habilidoso com espada que usa botas. É um aliado do Shrek e tem olhos irresistíveis.', 'https://www.dreamworks.com/storage/movies/shrek/gallery/shrek-gallery-4.jpg'),
-('Lord Farquaad', 'Um homem baixo e ambicioso que quer se tornar rei. É o principal antagonista do primeiro filme.', 'https://www.dreamworks.com/storage/movies/shrek/gallery/shrek-gallery-5.jpg'),
-('Dragon', 'Uma dragão fêmea que se apaixona pelo Burro. É poderosa e protetora com seus amigos.', 'https://www.dreamworks.com/storage/movies/shrek/gallery/shrek-gallery-6.jpg'); 
