@@ -556,6 +556,7 @@ h2 {
     width: 100px;
     margin-bottom: 1rem;
     filter: drop-shadow(0 2px 8px #ed145b88);
+    border-radius: 16px;
 }
 .fiap-footer p {
     margin: 0;
